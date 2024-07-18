@@ -6,6 +6,7 @@ require('./config/db');
 const logger = require('./utils/logger');
 
 const timezoneRoutes = require('./api/routes/timezone.route');
+const airfieldRoutes = require('./api/routes/airfield.route');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.use('/api/v1/timezone', timezoneRoutes);
+app.use('/api/v1/airfield', airfieldRoutes);
 
 app.listen(PORT, () => {
     logger.info(`Server is listening on port ${PORT}`);

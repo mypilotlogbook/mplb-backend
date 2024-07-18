@@ -1,21 +1,21 @@
 const express = require('express');
-const logger = require('../../utils/logger');
+const { getAirfields, getAirfield, deleteAirfield, createAirfield, updateAirfield } = require('../controllers/airfield.controller');
 
 const router = express.Router();
 
 //get all airfield
-router.get('/', );
+router.get('/', getAirfields);
 
 //get single airfield
-router.get('/', );
+router.get('/:airfieldId', getAirfield);
 
 //create airfield
-router.post('/', );
+router.post('/', createAirfield);
 
 //update airfield
-router.put('/', );
+router.patch('/:airfieldId', updateAirfield);
 
 //delete airfield
-router.delete('/', );
+router.delete('/:airfieldId', deleteAirfield);
 
 module.exports = router;

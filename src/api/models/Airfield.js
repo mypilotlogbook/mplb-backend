@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const AirfieldSchema = new mongoose.Schema({
     airfield_code : {
         type: String,
+        unique: true
     },
     country : {
         type: String,
