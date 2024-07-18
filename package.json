@@ -21,6 +21,7 @@
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
     "pino": "^8.15.0",
-    "pino-pretty": "^10.2.0"
+    "pino-pretty": "^10.2.0",
+    "validator": "^13.12.0"
   }
 }
