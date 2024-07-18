@@ -2,12 +2,21 @@ const logger = require('../../utils/logger');
 const ErrorResponse = require('../../utils/ErrorResponse');
 const SuccessResponse = require('../../utils/SuccessResponse');
 const Timezone = require('../models/Timezone');
+const validator = require('validator');
 
 const createTimezone = async (req, res) => {
     try {
         const { timezone } = req.body;
 
-        const existingTimezone = await Timezone.findOne({ timezone: timezone });
+        // Validate that timezone is a non-empty string
+        if (typeof timezone !== 'string' || validator.isEmpty(timezone)) {
+            return res.status(400).json({ message: 'Invalid timezone code' });
+        }
+
+        // Optionally, sanitize the timezone (escaping potential harmful characters)
+        const sanitizedTimezone = validator.escape(timezone);
+
+        const existingTimezone = await Timezone.findOne({ timezone: sanitizedTimezone });
 
         if(existingTimezone) {
             logger.info("Create timezone query was failed");

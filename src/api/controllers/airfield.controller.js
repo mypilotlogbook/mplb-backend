@@ -2,6 +2,7 @@ const logger = require('../../utils/logger');
 const ErrorResponse = require('../../utils/ErrorResponse');
 const SuccessResponse = require('../../utils/SuccessResponse');
 const Airfield = require('../models/Airfield');
+const validator = require('validator');
 
 const getAirfields = async (req, res) => {
     try {
@@ -148,7 +149,15 @@ const createAirfield = async (req, res) => {
             longitude
         } = req.body;
 
-        const existingAirfield = await Airfield.findOne({ airfield_code: airfield_code });
+        // Validate that airfield_code is a non-empty string
+        if (typeof airfield_code !== 'string' || validator.isEmpty(airfield_code)) {
+            return res.status(400).json({ message: 'Invalid airfield code' });
+        }
+
+        // Optionally, sanitize the airfield_code (escaping potential harmful characters)
+        const sanitizedAirfieldCode = validator.escape(airfield_code);
+
+        const existingAirfield = await Airfield.findOne({ airfield_code: sanitizedAirfieldCode });
         if(existingAirfield) {
             logger.info("Create airfield query was failed");
             return res.status(423).json(
