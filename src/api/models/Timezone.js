@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const TimezoneSchema = new mongoose.Schema({
     timezone: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
 }, { timestamps: true });
 

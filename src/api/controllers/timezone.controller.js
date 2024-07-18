@@ -7,6 +7,19 @@ const createTimezone = async (req, res) => {
     try {
         const { timezone } = req.body;
 
+        const existingTimezone = await Timezone.findOne({ timezone: timezone });
+
+        if(existingTimezone) {
+            logger.info("Create timezone query was failed");
+            return res.status(400).json(
+                new ErrorResponse(
+                    400,
+                    "Create timezone query was failed",
+                    "Created timezone already exists",
+                )
+            );
+        }
+
         const newTimezone = new Timezone({
             timezone: timezone
         });
@@ -67,7 +80,7 @@ const getTimezone = async (req, res) => {
         if(!timezoneId) {
             logger.info("Get timezone query was failed");
             return res.status(423).json(
-                new SuccessResponse(
+                new ErrorResponse(
                     423,
                     "Get timezone query was failed",
                     "Timezone Id not found",
@@ -80,7 +93,7 @@ const getTimezone = async (req, res) => {
         if(!timezone) {
             logger.info("Get timezone query was failed");
             return res.status(404).json(
-                new SuccessResponse(
+                new ErrorResponse(
                     404,
                     "Get timezone query was failed",
                     "Timezone not found",
@@ -117,7 +130,7 @@ const updateTimezone = async (req, res) => {
         if(!timezoneId) {
             logger.info("Update timezone query was failed");
             return res.status(423).json(
-                new SuccessResponse(
+                new ErrorResponse(
                     423,
                     "Update timezone query was failed",
                     "Timezone Id not found",
@@ -130,7 +143,7 @@ const updateTimezone = async (req, res) => {
         if(!updatedTimezone) {
             logger.info("Update timezone query was failed");
             return res.status(404).json(
-                new SuccessResponse(
+                new ErrorResponse(
                     404,
                     "Update timezone query was failed",
                     "Timezone not found",
@@ -167,7 +180,7 @@ const deleteTimezone = async (req, res) => {
         if(!timezoneId) {
             logger.info("Delete timezone query was failed");
             return res.status(423).json(
-                new SuccessResponse(
+                new ErrorResponse(
                     423,
                     "Delete timezone query was failed",
                     "Timezone Id not found",
@@ -179,7 +192,7 @@ const deleteTimezone = async (req, res) => {
         if(!timezone) {
             logger.info("Delete timezone query was failed");
             return res.status(404).json(
-                new SuccessResponse(
+                new ErrorResponse(
                     404,
                     "Delete timezone query was failed",
                     "Timezone not found",
