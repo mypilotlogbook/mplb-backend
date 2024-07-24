@@ -291,8 +291,17 @@ const forgotPassword = async (req, res) => {
 
 const loginUser = async (req, res) => {
     try {
+        const { email } = req.body;
 
-        const user = await UserScheama.findOne({ email: req.body.email });
+        // Validate that email is a non-empty string
+        if (typeof email !== 'string' || validator.isEmpty(email)) {
+            return res.status(400).json({ message: 'Invalid email' });
+        }
+
+        // Optionally, sanitize the email (escaping potential harmful characters)
+        const sanitizedEmail = validator.escape(email);
+
+        const user = await UserScheama.findOne({ email: sanitizedEmail });
         if (!user){ 
             logger.error("Email not found"); 
             return res.status(404).json(
