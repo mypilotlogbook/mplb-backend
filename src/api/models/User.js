@@ -29,6 +29,12 @@ const UserScheama = new mongoose.Schema({
         type: String,
         required: true
     },
+    position: {
+        type: String,
+    },
+    company: {
+        type: String,
+    },
 });
 
 module.exports = mongoose.model('User', UserScheama);
