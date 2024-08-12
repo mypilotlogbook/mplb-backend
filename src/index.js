@@ -11,6 +11,7 @@ const airfieldRoutes = require('./api/routes/airfield.route');
 const userRoutes = require('./api/routes/user.route');
 const emailRoutes = require('./api/routes/email.route');
 const aircraftRoutes = require('./api/routes/aircraft.route');
+const pilotRoutes = require('./api/routes/pilot.route');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use('/api/v1/airfield', airfieldRoutes);
 app.use('/api/v1/user', userRoutes);
 app.use('/api/v1/email', emailRoutes);
 app.use('/api/v1/aircraft', aircraftRoutes);
+app.use('/api/v1/pilot', pilotRoutes);
 
 app.listen(PORT, () => {
     logger.info(`Server is listening on port ${PORT}`);
