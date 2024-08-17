@@ -16,6 +16,10 @@ const PilotScheama = new mongoose.Schema({
     position: {
         type: String,
     },
+    image: {
+        type: String,
+        default: ''
+    },
     employee_id: {
         type: String,
     },

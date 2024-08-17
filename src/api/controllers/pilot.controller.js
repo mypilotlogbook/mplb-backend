@@ -171,6 +171,7 @@ const createPilot = async (req, res) => {
     try {
 
         const {
+            image,
             fname,
             lname,
             company,
@@ -184,6 +185,7 @@ const createPilot = async (req, res) => {
         } = req.body;
 
         const pilot = new PilotScheama({
+            image,
             fname,
             lname,
             company,
