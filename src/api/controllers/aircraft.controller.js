@@ -137,7 +137,7 @@ const createAircraft = async (req, res) => {
         const {
             type,
             image,
-            comapny,
+            company,
             fin,
             registration_no,
             model,
@@ -168,30 +168,10 @@ const createAircraft = async (req, res) => {
             userId
         } = req.body;
 
-        // Validate that registration_no is a non-empty string
-        if (typeof registration_no !== 'string' || validator.isEmpty(registration_no)) {
-            return res.status(400).json({ message: 'Invalid registration number' });
-        }
-
-        // Optionally, sanitize the registration_no (escaping potential harmful characters)
-        const sanitizedRegistrationNo = validator.escape(registration_no);
-
-        const existingAircraft = await Aircraft.findOne({ registration_no: sanitizedRegistrationNo });
-        if(existingAircraft) {
-            logger.info("Create aircraft query was failed");
-            return res.status(423).json(
-                new ErrorResponse(
-                    423,
-                    "Create aircraft query was failed",
-                    "Aircraft already exists",
-                )
-            );
-        }
-
         const aircraft = new Aircraft({
             type,
             image,
-            comapny,
+            company,
             fin,
             registration_no,
             model,
