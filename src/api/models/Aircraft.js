@@ -17,7 +17,6 @@ const AircraftSchema = new mongoose.Schema({
     },
     registration_no: {
         type: String,
-        unique: true
     },
     model: {
         type: String,
@@ -118,6 +117,6 @@ const AircraftSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Aircraft', AircraftSchema);
