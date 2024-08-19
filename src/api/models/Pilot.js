@@ -18,7 +18,7 @@ const PilotScheama = new mongoose.Schema({
     },
     image: {
         type: String,
-        default: 'https://images.unsplash.com/photo-1632283409723-4cd4560e0857?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        default: 'https://res.cloudinary.com/dv9ax00l4/image/upload/v1723890106/user-profile-img-removebg-preview_rlafow.png'
     },
     employee_id: {
         type: String,
