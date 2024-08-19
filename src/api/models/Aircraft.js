@@ -105,6 +105,10 @@ const AircraftSchema = new mongoose.Schema({
         type: String,
         enum: ['ACRO', 'AEMS', 'AMBU', 'AT', 'ATFM', 'ATFMX', 'ATPL', 'BFR', 'CAR406', 'CAR604', 'CAR701', 'CAR702', 'CAR703', 'CAR704', 'CAR705', 'CARGO', 'CBT', 'CDR', 'CDR-FM', 'CHECK', 'CHECK/MY', 'CPL', 'CROP', 'DH', 'DROP', 'ETOPS', 'FAR107', 'FAR117', 'FAR121', 'FAR129', 'FAR133', 'FAR135', 'FAR141', 'FAR380', 'FAR61', 'FAR63', 'FAR91', 'FERRY', 'FORM', 'HEMS', 'HESLO', 'HOIST', 'IFF', 'INSP', 'LOQE', 'LOSA', 'LOW', 'LVP', 'MAINT', 'MCC', 'MEDEVAC', 'MIL', 'MOUNT', 'NAVY', 'NVIS', 'OBS', 'OFFSH', 'P2X', 'PHOTO', 'POLAR', 'POLAV', 'PPL', 'PRIV', 'READ', 'RHS', 'SAFETY', 'SAR', 'SFO', 'SNY', 'SOLO', 'SPIC', 'TOW', 'TRNG', 'WINCH', 'ZERO-G'], 
     },
+    default_approach: {
+        type: String,
+        enum: ['AL', 'ARA', 'A-RNP', 'ARRGR', 'BOL', 'CAT-1(LTS)', 'CAT-2', 'CAT-2(OTS)', 'CAT-3', 'CAT-3b', 'CAT-3c', 'CATAPULT', 'CIRC', 'CONTACT', 'DECK', 'DECK-TO', 'EFVS', 'FCLP', 'G/A', 'GCA', 'GLACIER', 'GLONASS', 'GLS', 'GPS', 'HOSP', 'HUB/EVS', 'HUB-TO', 'IAN', 'IAPP', 'ILS', 'ILS(IGS)', 'ILS(PRM)', 'ILS(STEEP)', 'JPALS', 'LAAS', 'LDA', 'LNAV', 'LNAV-VNAV', 'LOC', 'LOC-BC', 'LOC-DME', 'LPV', 'LVTO', 'MLS', 'MOUNT', 'MP', 'NDB', 'NDB2', 'NDB-DME', 'NON-PREC', 'NVIS', 'NVIS(CAL)', 'NVIS(UL)', 'OIL RIG', 'OUTSIDE', 'PAR', 'PMA', 'PREC', 'RFA', 'RIG N FLY', 'RNAV', 'RNAV (DME-DME)', 'RNAV (GNSS)', 'RNAV (GPS) / LNAV', 'RNAV (GPS) / LP', 'RNAV (GPS) / LPV', 'RNAV (GPS) / VNAV', 'RNAV (VIS)', 'RNAV (VOR-DME)', 'RNP', 'RNP / LNAV', 'RNP', 'RNP / LNAV', 'RNP / LP', 'RNP / LPV', 'RNP / VNAV', 'RNP AR', 'ROOF', 'SDF', 'SHIP', 'SRA', 'T&GO', 'TACAN', 'VISUAL', 'VNAV', 'VOR', 'VOR-DME', 'VS',], 
+    },
     default_launch: {
         type: String,
         enum: ['Aerotow', 'Bungee', 'Car Tow', 'Self Launch', 'Winch',], 
