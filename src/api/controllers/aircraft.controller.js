@@ -163,6 +163,7 @@ const createAircraft = async (req, res) => {
             actual_instrument,
             sim_instrument,
             default_operation,
+            default_approach,
             default_launch,
             auto_load_hours,
             userId
@@ -197,6 +198,7 @@ const createAircraft = async (req, res) => {
             actual_instrument,
             sim_instrument,
             default_operation,
+            default_approach,
             default_launch,
             auto_load_hours,
             userId
