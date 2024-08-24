@@ -273,11 +273,51 @@ const updatePilot = async (req, res) => {
     }
 }
 
+const deletePilotsByUserId = async (req, res) => {
+    try {
+
+        const { userId } = req.params;
+
+        if(!userId) {
+            logger.info("Delete Pilots by userId query was failed");
+            return res.status(423).json(
+                new ErrorResponse(
+                    423,
+                    "Delete Pilots by userId query was failed",
+                    "User Id not found",
+                )
+            );
+        }
+
+        await PilotScheama.deleteMany({ userId: userId });   
+
+        logger.info("Update pilot query was successful");
+        res.status(204).json(
+            new SuccessResponse(
+                204,
+                "Delete Pilots by userId query was successful",
+                "Pilots Data deleted successfully",
+            )
+        );
+    } catch (error) {
+        logger.error(error);
+        logger.error("Delete Pilots by userId internal server error");
+        res.status(500).json(
+            new ErrorResponse(
+                500,
+                "Delete Pilots by userId internal server error",
+                error
+            )
+        );
+    }
+}
+
 module.exports = {
     getAllPilots,
     getPilot,
     deletePilot,
     getAllPilotsByUserId,
     createPilot,
-    updatePilot
+    updatePilot,
+    deletePilotsByUserId
 }
