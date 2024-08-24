@@ -317,11 +317,51 @@ const getAircraftsByUserId = async (req, res) => {
     }
 }
 
+const deleteAircraftsByUserId = async (req, res) => {
+    try {
+
+        const { userId } = req.params;
+
+        if(!userId) {
+            logger.info("Delete Aircrafts by userId query was failed");
+            return res.status(423).json(
+                new ErrorResponse(
+                    423,
+                    "Delete Aircrafts by userId query was failed",
+                    "User Id not found",
+                )
+            );
+        }
+
+        await Aircraft.deleteMany({ userId: userId });   
+
+        logger.info("Delete Aircrafts by userId query was successful");
+        res.status(204).json(
+            new SuccessResponse(
+                204,
+                "Delete Aircrafts by userId query was successful",
+                "Aircrafts Data deleted successfully",
+            )
+        );
+    } catch (error) {
+        logger.error(error);
+        logger.error("Delete Aircrafts by userId internal server error");
+        res.status(500).json(
+            new ErrorResponse(
+                500,
+                "Delete Aircrafts by userId internal server error",
+                error
+            )
+        );
+    }
+}
+
 module.exports = {
     getAircrafts,
     getAircraft,
     deleteAircraft,
     createAircraft,
     updateAircraft,
-    getAircraftsByUserId
+    getAircraftsByUserId,
+    deleteAircraftsByUserId
 }

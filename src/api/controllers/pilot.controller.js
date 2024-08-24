@@ -291,7 +291,7 @@ const deletePilotsByUserId = async (req, res) => {
 
         await PilotScheama.deleteMany({ userId: userId });   
 
-        logger.info("Update pilot query was successful");
+        logger.info("Delete Pilots by userId query was successful");
         res.status(204).json(
             new SuccessResponse(
                 204,
