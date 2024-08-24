@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllPilots, getPilot, createPilot, updatePilot, deletePilot, getAllPilotsByUserId } = require('../controllers/pilot.controller');
+const { getAllPilots, getPilot, createPilot, updatePilot, deletePilot, getAllPilotsByUserId, deletePilotsByUserId } = require('../controllers/pilot.controller');
 
 const router = express.Router();
 
@@ -20,5 +20,8 @@ router.put('/:pilotId', updatePilot);
 
 //delete pilot
 router.delete('/:pilotId', deletePilot);
+
+//delete pilots bt userId
+router.delete('/deletePilotsByUserId/:userId', deletePilotsByUserId);
 
 module.exports = router;
