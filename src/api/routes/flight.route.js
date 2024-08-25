@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllFlights, getAllFlightsByUserId, getFlight, createFlight, updateFlight, deleteFlight } = require('../controllers/flight.controller');
+const { getAllFlights, getAllFlightsByUserId, getFlight, createFlight, updateFlight, deleteFlight, deleteAircraftsByUserId } = require('../controllers/flight.controller');
 
 const router = express.Router();
 
@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', getAllFlights);
 
 //get all flight by userId
-router.get('/getFlightByUserId/:userId', getAllFlightsByUserId);
+router.get('/getFlightsByUserId/:userId', getAllFlightsByUserId);
 
 //get single flight
 router.get('/:flightId', getFlight);
@@ -20,5 +20,8 @@ router.put('/:flightId', updateFlight);
 
 //delete flight
 router.delete('/:flightId', deleteFlight);
+
+//delete aircrafts by userId
+router.delete('/deleteFlightsByUserId/:userId', deleteAircraftsByUserId);
 
 module.exports = router;
