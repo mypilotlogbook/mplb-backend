@@ -5,12 +5,12 @@ const FlightSchema = new mongoose.Schema(
     //flight time and location
     date: {
       type: Date,
-      required: true,
+      required: false,
     },
     aircraft: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Aircraft",
-      required: true,
+      required: false,
     },
     flight_nr: {
       type: String,
@@ -18,12 +18,12 @@ const FlightSchema = new mongoose.Schema(
     departure: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Airfield",
-      required: true,
+      required: false,
     },
     arrival: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Airfield",
-      required: true,
+      required: false,
     },
     std: {
       type: String,
@@ -81,42 +81,49 @@ const FlightSchema = new mongoose.Schema(
     },
     delay_code_one: {
       type: String,
+      required: false
     },
     delay_code_two: {
       type: String,
+      required: false
     },
     delay_code_three: {
       type: String,
+      required: false
     },
     approach: {
-      type: [
-        {
-          id: {
-            type: Number,
-          },
-          category: {
-            type: String,
-          },
-          description: {
-            type: String,
-          },
-        },
-      ],
+      // type: [
+      //   {
+      //     id: {
+      //       type: Number,
+      //     },
+      //     category: {
+      //       type: String,
+      //     },
+      //     description: {
+      //       type: String,
+      //     },
+      //   },
+      // ],
+      type: String,
+      required: false
     },
     operation: {
-      type: [
-        {
-          id: {
-            type: Number,
-          },
-          category: {
-            type: String,
-          },
-          description: {
-            type: String,
-          },
-        },
-      ],
+      // type: [
+      //   {
+      //     id: {
+      //       type: Number,
+      //     },
+      //     category: {
+      //       type: String,
+      //     },
+      //     description: {
+      //       type: String,
+      //     },
+      //   },
+      // ],
+      type: String,
+      required: false
     },
     sign: {
       type: String,
@@ -141,6 +148,9 @@ const FlightSchema = new mongoose.Schema(
       type: String,
     },
     relief: {
+      type: String,
+    },
+    task: {
       type: String,
       enum: ["PF", "PM"],
       required: false,

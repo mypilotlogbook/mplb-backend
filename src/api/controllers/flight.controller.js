@@ -151,7 +151,15 @@ const getAllFlightsByUserId = async (req, res) => {
             );
         }
 
-        const flights = await FlightScheama.find({ userId: userId });
+        const flights = await FlightScheama.find({ userId: userId })
+            .populate('userId')
+            .populate('pilotOne')
+            .populate('pilotTwo')
+            .populate('pilotThree')
+            .populate('departure')
+            .populate('arrival')
+            .populate('aircraft')
+            .exec();
 
         logger.info("Get all flights by userId query was successful");
         res.status(200).json(
