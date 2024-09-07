@@ -5,12 +5,12 @@ const FlightSchema = new mongoose.Schema(
     //flight time and location
     date: {
       type: Date,
-      required: false,
+      required: true,
     },
     aircraft: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Aircraft",
-      required: false,
+      required: true,
     },
     flight_nr: {
       type: String,
@@ -18,12 +18,12 @@ const FlightSchema = new mongoose.Schema(
     departure: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Airfield",
-      required: false,
+      required: true,
     },
     arrival: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Airfield",
-      required: false,
+      required: true,
     },
     std: {
       type: String,
@@ -54,18 +54,22 @@ const FlightSchema = new mongoose.Schema(
     pilotOne: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Pilot",
+      required: false
     },
     pilotTwo: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Pilot",
+      required: false
     },
     pilotThree: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Pilot",
+      required: false
     },
     pilotFour: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Pilot",
+      required: false
     },
     crew_list: {
       type: String,
