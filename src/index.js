@@ -13,11 +13,13 @@ const emailRoutes = require('./api/routes/email.route');
 const aircraftRoutes = require('./api/routes/aircraft.route');
 const pilotRoutes = require('./api/routes/pilot.route');
 const flightRoutes = require('./api/routes/flight.route');
+const reportRoutes = require('./api/routes/report.route');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json({ limit: '20mb' }));
+app.use(express.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 5050;
 
@@ -33,6 +35,7 @@ app.use('/api/v1/email', emailRoutes);
 app.use('/api/v1/aircraft', aircraftRoutes);
 app.use('/api/v1/pilot', pilotRoutes);
 app.use('/api/v1/flight', flightRoutes);
+app.use('/api/v1/report', reportRoutes);
 
 app.listen(PORT, () => {
     logger.info(`Server is listening on port ${PORT}`);
