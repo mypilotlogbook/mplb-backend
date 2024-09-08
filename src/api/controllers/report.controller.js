@@ -662,7 +662,7 @@ const generateAllAircraftsPdf = async (req, res) => {
                     item.category === undefined ? 'N/A' : item.category
                  }</div>
                 <div class="tbody-data">${ 
-                    item.power === undefined ? 'N/A' : item.power
+                    item.registration_no === undefined ? 'N/A' : item.registration_no
                  }</div>
             </div>
         `).join('');
@@ -746,7 +746,7 @@ const generateAllAircraftsPdf = async (req, res) => {
                         <div class="theader-data" style="border-right: 2px solid rgb(189, 189, 189);">Model - Varient</div>
                         <div class="theader-data" style="border-right: 2px solid rgb(189, 189, 189);">Class ID</div>
                         <div class="theader-data" style="border-right: 2px solid rgb(189, 189, 189);">Category</div>
-                        <div class="theader-data" style="border-right: 2px solid rgb(189, 189, 189);">Power</div>
+                        <div class="theader-data" style="border-right: 2px solid rgb(189, 189, 189);">Registration No.</div>
                     </div>
                     <div class="table-body">
                         ${tableRows}
@@ -821,7 +821,7 @@ const generateSelectedAircraftsPdf = async (req, res) => {
                     item.category === undefined ? 'N/A' : item.category
                  }</div>
                 <div class="tbody-data">${ 
-                    item.power === undefined ? 'N/A' : item.power
+                    item.registration_no === undefined ? 'N/A' : item.registration_no
                  }</div>
             </div>
         `).join('');
@@ -905,7 +905,7 @@ const generateSelectedAircraftsPdf = async (req, res) => {
                         <div class="theader-data" style="border-right: 2px solid rgb(189, 189, 189);">Model - Varient</div>
                         <div class="theader-data" style="border-right: 2px solid rgb(189, 189, 189);">Class ID</div>
                         <div class="theader-data" style="border-right: 2px solid rgb(189, 189, 189);">Category</div>
-                        <div class="theader-data" style="border-right: 2px solid rgb(189, 189, 189);">Power</div>
+                        <div class="theader-data" style="border-right: 2px solid rgb(189, 189, 189);">Registration No.</div>
                     </div>
                     <div class="table-body">
                         ${tableRows}
@@ -923,7 +923,7 @@ const generateSelectedAircraftsPdf = async (req, res) => {
         const date = new Date();
         const formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
         // Generate the PDF
-        const pdfBuffer = await page.pdf({ path: `${desktopPath}/AllAircrafts ${formattedDate}.pdf`, format: 'A4' });
+        const pdfBuffer = await page.pdf({ path: `${desktopPath}/SelectedAircrafts ${formattedDate}.pdf`, format: 'A4' });
 
         await browser.close();
 
