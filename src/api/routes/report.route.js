@@ -1,5 +1,5 @@
 const express = require('express');
-const { generateAllAirfieldsPdf, generateSelectedAirfieldsPdf, generateAllPilotsPdf, generateSelectedPilotsPdf, generateAllAircraftsPdf, generateSelectedAircraftsPdf } = require('../controllers/report.controller');
+const { generateAllAirfieldsPdf, generateSelectedAirfieldsPdf, generateAllPilotsPdf, generateSelectedPilotsPdf, generateAllAircraftsPdf, generateSelectedAircraftsPdf, generateAllFlightsPdf, generateSelectedFlightsPdf } = require('../controllers/report.controller');
 
 const router = express.Router();
 
@@ -14,5 +14,9 @@ router.post('/generateSelectedPilotsPdf', generateSelectedPilotsPdf);
 //generate aircrafts pdf
 router.post('/generateAllAircraftsPdf', generateAllAircraftsPdf);
 router.post('/generateSelectedAircraftsPdf', generateSelectedAircraftsPdf);
+
+//generate flights pdf
+router.post('/generateAllFlightsPdf', generateAllFlightsPdf);
+router.post('/generateSelectedFlightsPdf', generateSelectedFlightsPdf);
 
 module.exports = router;
