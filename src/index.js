@@ -14,6 +14,7 @@ const aircraftRoutes = require('./api/routes/aircraft.route');
 const pilotRoutes = require('./api/routes/pilot.route');
 const flightRoutes = require('./api/routes/flight.route');
 const reportRoutes = require('./api/routes/report.route');
+const analyticsRoutes = require('./api/routes/analytics.route');
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use('/api/v1/aircraft', aircraftRoutes);
 app.use('/api/v1/pilot', pilotRoutes);
 app.use('/api/v1/flight', flightRoutes);
 app.use('/api/v1/report', reportRoutes);
+app.use('/api/v1/analytics', analyticsRoutes);
 
 app.listen(PORT, () => {
     logger.info(`Server is listening on port ${PORT}`);
