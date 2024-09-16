@@ -1,9 +1,11 @@
 const express = require('express');
-const { getMonthlyFlightData } = require('../controllers/analytics.controller');
+const { getMonthlyFlightData, getMonthlyPilotsData, getMonthlyAicraftData } = require('../controllers/analytics.controller');
 
 const router = express.Router();
 
-//generate airfields pdf
+//get monthly analytics
 router.get('/getMonthlyFlightData/:userId', getMonthlyFlightData);
+router.get('/getMonthlyPilotsData/:userId', getMonthlyPilotsData);
+router.get('/getMonthlyAicraftData/:userId', getMonthlyAicraftData);
 
 module.exports = router;
