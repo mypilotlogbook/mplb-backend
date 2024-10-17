@@ -165,7 +165,7 @@ const FlightSchema = new mongoose.Schema(
     TO_night: {
       type: String,
     },
-    LDG_night: {
+    LDG_day: {
       type: String,
     },
     LDG_night: {
@@ -195,19 +195,16 @@ const FlightSchema = new mongoose.Schema(
     pax: {
       type: String,
     },
-    de_icing: {
-      type: Boolean,
-      default: false,
-    },
     fuel_total: {
-      type: Boolean,
-      default: false,
+      type: String,
     },
     fuel_plan: {
-      type: Boolean,
-      default: false,
+      type: String,
     },
     fuel_used: {
+      type: String,
+    },
+    de_icing: {
       type: Boolean,
       default: false,
     },
